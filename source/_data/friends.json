@@ -1,0 +1,25 @@
+[{
+	"avatar": "https://www.bearingpoint.com/project/frontend/build/logo-bearingpoint.c1f80e26.svg",
+	"name": "Bearingpoint",
+	"introduction": "曾经的世界五大咨询之一，收获最多的地方",
+	"url": "https://www.bearingpoint.com/en/",
+	"title": "根源"
+}, {
+	"avatar": "https://www.oracle.com/a/ocom/img/rc08-1982.png",
+	"name": "Oracle",
+	"introduction": "全世界一流数据库，很有创新的公司",
+	"url": "https://www.oracle.com/",
+	"title": "精进"
+}, {
+	"avatar": "https://greatviewpack.com/site/templates/assets/img/greatview_c.svg",
+	"name": "Greatview",
+	"introduction": "牛奶保鲜需要它，四年时间完成全集团数字化转型",
+	"url": "https://greatviewpack.com/",
+	"title": "成熟"
+}, {
+	"avatar": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3784242433,2917164516&fm=26&gp=0.jpg",
+	"name": "Xiaomi",
+	"introduction": "做手机的互联网公司，持续打磨",
+	"url": "https://www.mi.com/",
+	"title": "探索"
+}]
