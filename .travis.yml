@@ -24,3 +24,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/zhengr/rzblog.github.io.git
+   - GH_TOKEN: 0d168bde15b227fae7189d4cd127e8b27f11715e
