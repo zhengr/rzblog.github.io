@@ -1,17 +1,26 @@
-sudo: required
 language: node_js
 node_js: stable
-cache: npm
+
+install:
+  - npm install hexo
+
+script:
+  - hexo clean
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "zhengr"
+  - git config user.email "zhengr@msn.com"
+  - git add .
+  - git commit -a -m "Auto update docs by Travis CI."
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
 branches:
   only:
-  - hexo
-before_install:
-- npm install -g hexo-cli
-install:
-- npm install
-script:
-- hexo clean
-- git config --global user.name "Ghost Yang"
-- git config --global user.email "ghosttw88@hotmail.com"
-- sed -i'' "s~git@github.com:GhostTW/ghosttw.github.io.git~https://${REPO_TOKEN}@github.com/GhostTW/ghosttw.github.io.git~" _config.yml
-- hexo deploy
+    - hexo
+
+env:
+ global:
+   - GH_REF: github.com/zhengr/rzblog.github.io.git
