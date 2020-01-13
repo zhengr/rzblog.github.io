@@ -11,8 +11,8 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config user.name "zhengr"
-  - git config user.email "zhengr@msn.com"
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -a -m "Auto update docs by Travis CI."
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
@@ -24,4 +24,3 @@ branches:
 env:
  global:
    - GH_REF: github.com/zhengr/rzblog.github.io.git
-   - GH_TOKEN: 0d168bde15b227fae7189d4cd127e8b27f11715e
