@@ -1,0 +1,1422 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="实战人工智能（TensorFlow）在证券量化交易中的突破, 人工智能,大数据,云计算,区块链">
+    <meta name="description" content="近年来各类量化交易平台层出不穷， 多数是基于类似（anaconda + 证券数据）这样的数据建模+分析平台， 通过Python的强大数据处理能力来构建量化交易策略。近期测用了一个借助Tensorflow深度学习技术的量化工具，将人工智能概念">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>实战人工智能（TensorFlow）在证券量化交易中的突破 | Innovation</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Innovation</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Innovation</div>
+        <div class="logo-desc">
+            
+            艰苦奋斗、奋发进取，从绝望中寻找希望，人生终将辉煌。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengr" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengr" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/images/20171029Capture2.PNG')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">实战人工智能（TensorFlow）在证券量化交易中的突破</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tensorflow/">
+                                <span class="chip bg-color">tensorflow</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/">
+                                <span class="chip bg-color">量化交易</span>
+                            </a>
+                        
+                            <a href="/tags/Quant/">
+                                <span class="chip bg-color">Quant</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/AI/" class="post-category">
+                                AI
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-10-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>近年来各类量化交易平台层出不穷， 多数是基于类似（anaconda + 证券数据）这样的数据建模+分析平台， 通过Python的强大数据处理能力来构建量化交易策略。近期测用了一个借助Tensorflow深度学习技术的量化工具，将人工智能概念与量化交易融合，回测结果非常惊人，远超沪深300。</p>
+<h2 id="可视化策略设计"><a href="#可视化策略设计" class="headerlink" title="可视化策略设计"></a>可视化策略设计</h2><p><img src="https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/images/20171029Capture2.PNG" alt="20171029Capture2"></p>
+<h2 id="执行基于深度学习的量化交易策略"><a href="#执行基于深度学习的量化交易策略" class="headerlink" title="执行基于深度学习的量化交易策略"></a>执行基于深度学习的量化交易策略</h2><pre><code class="verilog">[2017-10-30 04:23:51.860846] INFO: quant: instruments.v2 开始运行..
+[2017-10-30 04:23:51.900663] INFO: quant: instruments.v2 运行完成[0.039842s].
+[2017-10-30 04:23:51.984478] INFO: quant: advanced_auto_labeler.v2 开始运行..
+[2017-10-30 04:24:05.050702] INFO: 自动数据标注: 加载历史数据: 4451670 行
+[2017-10-30 04:24:05.051990] INFO: 自动数据标注: 开始标注 ..
+[2017-10-30 04:24:31.427443] INFO: quant: advanced_auto_labeler.v2 运行完成[39.442966s].
+[2017-10-30 04:24:31.436329] INFO: quant: input_features.v1 开始运行..
+[2017-10-30 04:24:31.445372] INFO: quant: 命中缓存
+[2017-10-30 04:24:31.446037] INFO: quant: input_features.v1 运行完成[0.009731s].
+[2017-10-30 04:24:31.470692] INFO: quant: general_feature_extractor.v6 开始运行..
+[2017-10-30 04:24:43.465794] INFO: 基础特征抽取: 年份 2010, 特征行数=431567
+[2017-10-30 04:24:57.637034] INFO: 基础特征抽取: 年份 2011, 特征行数=511455
+[2017-10-30 04:25:13.418651] INFO: 基础特征抽取: 年份 2012, 特征行数=565675
+[2017-10-30 04:25:28.853081] INFO: 基础特征抽取: 年份 2013, 特征行数=564168
+[2017-10-30 04:25:45.124617] INFO: 基础特征抽取: 年份 2014, 特征行数=569948
+[2017-10-30 04:25:59.190550] INFO: 基础特征抽取: 年份 2015, 特征行数=569698
+[2017-10-30 04:26:15.774595] INFO: 基础特征抽取: 年份 2016, 特征行数=641546
+[2017-10-30 04:26:30.497031] INFO: 基础特征抽取: 年份 2017, 特征行数=597613
+[2017-10-30 04:26:30.527335] INFO: 基础特征抽取: 总行数: 4451670
+[2017-10-30 04:26:30.537181] INFO: quant: general_feature_extractor.v6 运行完成[119.066492s].
+[2017-10-30 04:26:30.547465] INFO: quant: derived_feature_extractor.v2 开始运行..
+[2017-10-30 04:26:34.316964] INFO: derived_feature_extractor: 提取完成 avg_amount_0/avg_amount_5, 0.009s
+[2017-10-30 04:26:34.329348] INFO: derived_feature_extractor: 提取完成 avg_amount_5/avg_amount_20, 0.011s
+[2017-10-30 04:26:34.341731] INFO: derived_feature_extractor: 提取完成 rank_avg_amount_0/rank_avg_amount_5, 0.011s
+[2017-10-30 04:26:34.352090] INFO: derived_feature_extractor: 提取完成 rank_avg_amount_5/rank_avg_amount_10, 0.009s
+[2017-10-30 04:26:34.361827] INFO: derived_feature_extractor: 提取完成 rank_return_0/rank_return_5, 0.008s
+[2017-10-30 04:26:34.371729] INFO: derived_feature_extractor: 提取完成 rank_return_5/rank_return_10, 0.009s
+[2017-10-30 04:26:39.481508] INFO: derived_feature_extractor: /y_2010, 431567
+[2017-10-30 04:26:39.912103] INFO: derived_feature_extractor: /y_2011, 511455
+[2017-10-30 04:26:40.795991] INFO: derived_feature_extractor: /y_2012, 565675
+[2017-10-30 04:26:41.290907] INFO: derived_feature_extractor: /y_2013, 564168
+[2017-10-30 04:26:41.778812] INFO: derived_feature_extractor: /y_2014, 569948
+[2017-10-30 04:26:42.304537] INFO: derived_feature_extractor: /y_2015, 569698
+[2017-10-30 04:26:43.185396] INFO: derived_feature_extractor: /y_2016, 641546
+[2017-10-30 04:26:43.997410] INFO: derived_feature_extractor: /y_2017, 597613
+[2017-10-30 04:26:44.741970] INFO: quant: derived_feature_extractor.v2 运行完成[14.194475s].
+[2017-10-30 04:26:44.753794] INFO: quant: join.v3 开始运行..
+[2017-10-30 04:27:01.503429] INFO: join: /y_2010, 行数=431030/431567, 耗时=13.222894s
+[2017-10-30 04:27:26.105056] INFO: join: /y_2011, 行数=510922/511455, 耗时=24.586824s
+[2017-10-30 04:27:59.728027] INFO: join: /y_2012, 行数=564582/565675, 耗时=33.589178s
+[2017-10-30 04:28:26.234889] INFO: join: /y_2013, 行数=563137/564168, 耗时=26.479275s
+[2017-10-30 04:28:58.825867] INFO: join: /y_2014, 行数=567874/569948, 耗时=32.568128s
+[2017-10-30 04:29:27.996655] INFO: join: /y_2015, 行数=560424/569698, 耗时=29.145789s
+[2017-10-30 04:29:58.872081] INFO: join: /y_2016, 行数=637424/641546, 耗时=30.851773s
+[2017-10-30 04:30:30.941011] INFO: join: /y_2017, 行数=576562/597613, 耗时=32.041855s
+[2017-10-30 04:30:31.102396] INFO: join: 最终行数: 4411955
+[2017-10-30 04:30:31.104637] INFO: quant: join.v3 运行完成[226.350825s].
+[2017-10-30 04:30:31.119058] INFO: quant: dropnan.v1 开始运行..
+[2017-10-30 04:30:31.776377] INFO: dropnan: /y_2010, 423741/431030
+[2017-10-30 04:30:33.517425] INFO: dropnan: /y_2011, 504726/510922
+[2017-10-30 04:30:34.449474] INFO: dropnan: /y_2012, 561109/564582
+[2017-10-30 04:30:35.291505] INFO: dropnan: /y_2013, 563107/563137
+[2017-10-30 04:30:37.202618] INFO: dropnan: /y_2014, 566035/567874
+[2017-10-30 04:30:39.190745] INFO: dropnan: /y_2015, 558148/560424
+[2017-10-30 04:30:42.708962] INFO: dropnan: /y_2016, 635564/637424
+[2017-10-30 04:30:43.383097] INFO: dropnan: /y_2017, 571976/576562
+[2017-10-30 04:30:43.415940] INFO: dropnan: 行数: 4384406/4411955
+[2017-10-30 04:30:43.436363] INFO: quant: dropnan.v1 运行完成[12.317303s].
+[2017-10-30 04:30:43.593560] INFO: quant: stock_ranker_train.v5 开始运行..
+[2017-10-30 04:31:31.995534] INFO: df2bin: prepare bins ..
+[2017-10-30 04:31:38.116864] INFO: df2bin: prepare data: training ..
+[2017-10-30 04:32:22.274530] INFO: df2bin: sort ..
+[2017-10-30 04:34:25.088080] INFO: stock_ranker_train: 09817828 准备训练: 4384406 行数
+[2017-10-30 04:37:28.953616] INFO: quant: stock_ranker_train.v5 运行完成[405.360067s].
+[2017-10-30 04:37:28.960640] INFO: quant: instruments.v2 开始运行..
+[2017-10-30 04:37:28.963965] INFO: quant: 命中缓存
+[2017-10-30 04:37:28.965369] INFO: quant: instruments.v2 运行完成[0.004703s].
+[2017-10-30 04:37:28.983046] INFO: quant: general_feature_extractor.v6 开始运行..
+[2017-10-30 04:37:28.987251] INFO: quant: 命中缓存
+[2017-10-30 04:37:28.988026] INFO: quant: general_feature_extractor.v6 运行完成[0.00499s].
+[2017-10-30 04:37:28.993648] INFO: quant: derived_feature_extractor.v2 开始运行..
+[2017-10-30 04:37:28.996227] INFO: quant: 命中缓存
+[2017-10-30 04:37:28.997090] INFO: quant: derived_feature_extractor.v2 运行完成[0.00344s].
+[2017-10-30 04:37:29.002208] INFO: quant: dropnan.v1 开始运行..
+[2017-10-30 04:37:29.007026] INFO: quant: 命中缓存
+[2017-10-30 04:37:29.008029] INFO: quant: dropnan.v1 运行完成[0.005807s].
+[2017-10-30 04:37:29.024938] INFO: quant: stock_ranker_predict.v5 开始运行..
+[2017-10-30 04:37:32.514483] INFO: df2bin: prepare data: prediction ..
+[2017-10-30 04:38:02.464189] INFO: stock_ranker_predict: 准备预测: 1202058 行
+[2017-10-30 04:38:15.803604] INFO: quant: stock_ranker_predict.v5 运行完成[46.778661s].
+[2017-10-30 04:38:15.864959] INFO: quant: backtest.v7 开始运行..
+[2017-10-30 04:39:11.183389] INFO: Performance: Simulated 488 trading days out of 488.
+[2017-10-30 04:39:11.184538] INFO: Performance: first open: 2015-01-05 14:30:00+00:00
+[2017-10-30 04:39:11.185306] INFO: Performance: last close: 2016-12-30 20:00:00+00:00
+[2017-10-30 04:39:13.489930] INFO: bigquant: backtest.v7 运行完成[57.624996s].</code></pre>
+<h2 id="回测结果数据"><a href="#回测结果数据" class="headerlink" title="回测结果数据"></a>回测结果数据</h2><p><img src="https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/images/20171029Capture1.PNG" alt="20171029Capture1"></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.eeic.com.cn" rel="external nofollow noreferrer">robin zheng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.eeic.com.cn/2017/10/29/AI/2017-10-29-Tensorflow-quant/">https://blog.eeic.com.cn/2017/10/29/AI/2017-10-29-Tensorflow-quant/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.eeic.com.cn" target="_blank">robin zheng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/tensorflow/">
+                                    <span class="chip bg-color">tensorflow</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/">
+                                    <span class="chip bg-color">量化交易</span>
+                                </a>
+                            
+                                <a href="/tags/Quant/">
+                                    <span class="chip bg-color">Quant</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '9JAMWhDLaXKEtQcYKrDnieE9-gzGzoHsz',
+        appKey: '1asHvgBTUr8L1snNDYxOFUKH',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/09/13/%E5%90%8E%E7%AB%AF/Java/Java%208%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API%E7%9A%8420%E4%B8%AA%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Java8中关于日期和时间API的20个使用示例">
+                        
+                        <span class="card-title">Java8中关于日期和时间API的20个使用示例</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、前言随着lambda表达式、streams以及一系列小优化，Java8推出了全新的日期时间API，在一下的指南中我们将通过一些简单的示例来学习如何使用新API。Java处理日期、日历和时间的方式一直为社区所诟病，将java.util.D
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-09-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/10/29/AI/2018-01-01-KNIME-How-to-Connect-Database/">
+                    <div class="card-image">
+                        
+                        <img src="https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/images/db_prefs.png" class="responsive-img" alt="KNIME 连接主流数据库方法">
+                        
+                        <span class="card-title">KNIME 连接主流数据库方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            KNIME 连接主流数据库方法Database DocumentationInstallation and SetupKNIME allows connecting to almost all JDBC-compliant database
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-10-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/AI/" class="post-category">
+                                    AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database/">
+                        <span class="chip bg-color">Database</span>
+                    </a>
+                    
+                    <a href="/tags/Knime/">
+                        <span class="chip bg-color">Knime</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://blog.eeic.com.cn" target="_blank">Robin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
