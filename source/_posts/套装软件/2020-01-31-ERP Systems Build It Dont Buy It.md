@@ -2,6 +2,7 @@
 title: 戏说：系统（例如ERP）买一个还是自研一个?
 date: 2020-01-31 00:00:00
 author: robin zheng
+cover: true
 img: https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/images/31133000.jpg
 categories: 套装软件
 tags:
