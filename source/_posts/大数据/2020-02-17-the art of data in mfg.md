@@ -2,7 +2,7 @@
 title: 并非那么枯燥，手机生产的数字缠绕实现艺术感十足
 date: 2020-02-17 00:00:00
 author: robin zheng
-img: https://wx2.sinaimg.cn/mw690/672d9ecfly1gbzdllehwoj20u00enaec.jpg
+img: https://i.loli.net/2020/02/17/Pe8z5tFlGYo91C7.jpg
 categories: 大数据
 tags:
   - Data
@@ -23,6 +23,6 @@ tags:
 
 手机生产的数字缠绕，从SMT贴片到包装的全数字足迹跟踪，将实际生产的完整实时数字化映射到千里/万里之外生产管理人员的办公桌。这一切都是对小米每一部手机的保驾护航，是对每一个购买者信任的承诺。我们已经游弋在制造数据的海洋，2020 我们继续扬帆远行，加大AI引擎的马力，向更深，更远的数字化未知领域开航。
 
-![关键信息虚化处理](https://wx2.sinaimg.cn/mw690/672d9ecfly1gbzdllehwoj20u00enaec.jpg)
+![关键信息虚化处理](https://i.loli.net/2020/02/17/Pe8z5tFlGYo91C7.jpg)
 
 传统的企业应用软件架构很难做到如此大数据量的实时处理。基于小米自研技术栈，独特的互联网基因不断放大我们在这个领域的优势，互联网技术化的enterprise software必须让你耳目一新。
