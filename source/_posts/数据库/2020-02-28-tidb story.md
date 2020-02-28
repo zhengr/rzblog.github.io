@@ -164,7 +164,7 @@ func NewRegionSyncer(s Server) *RegionSyncer {
 "github.com/syndtr/goleveldb/leveldb"
 "github.com/syndtr/goleveldb/leveldb/util"
 ```
-具体参见 https://github.com/syndtr/goleveldb，PingCAP的人好爱用levelDB。难道是因为LevelDB 是基于内存 + SSD的冷热分离架构。
+具体参见 https://github.com/syndtr/goleveldb PingCAP的人好爱用levelDB。难道是因为LevelDB 是基于内存 + SSD的冷热分离架构。
 
 你能看到这，说明你还是很有耐心的，TiDB是很有前途的NewSQL数据库，真心希望他们走的越来越好。早早兼容Oracle语法。当好去IOE排头兵。
 
