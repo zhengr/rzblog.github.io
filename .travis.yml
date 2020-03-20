@@ -17,6 +17,16 @@ after_script:
   - git commit -a -m "Auto update docs by Travis CI."
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
+notifications:
+  webhooks:
+    urls:
+      - https://open.feishu.cn/officialapp/notify/52530f3bc9e667998c59cd6bc14a654ca9cfe240e0619e8b9178644e37be6390
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: never # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
+
 branches:
   only:
     - hexo
