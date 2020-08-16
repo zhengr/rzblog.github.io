@@ -1,6 +1,6 @@
 ---
 title: 现代工业物联网(IIoT)大数据实战-风力发电机优化
-date: 2020-08-05 00:00:00
+date: 2020-08-16 00:00:00
 author: 郑瑞(robin RUI ZHENG)
 categories: 大数据
 tags:
