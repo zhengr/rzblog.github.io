@@ -22,9 +22,10 @@ tags:
 
 企业正在转向类似Microsoft Azure这样的云计算平台，以利用它们所提供的可扩展的、支持IIoT的技术，使获取、处理、分析和服务时间序列数据源（如Historians和SCADA系统）变得简单。
 
-- 在第1部分中，我们将讨论端到端技术堆栈以及Azure Databricks在现代物联网分析的工业应用的架构和设计中所扮演的角色
-- 在第2部分中，我们将深入探讨部署现代IIoT分析技术，将现场设备的实时IIoT机对机数据摄入数据湖存储中，并直接在数据湖上进行复杂的时间序列处理
-- 在第3部分中，我们将探讨利用工业物联网数据进行机器学习和分析
+> - 在第1部分中，我们将讨论端到端技术堆栈以及Azure Databricks在现代物联网分析的工业应用的架构和设计中所扮演的角色
+> - 在第2部分中，我们将深入探讨部署现代IIoT分析技术，将现场设备的实时IIoT机对机数据摄入数据湖存储中，并直接在数据湖上进行复杂的时间序列处理
+> - 在第3部分中，我们将探讨利用工业物联网数据进行机器学习和分析
+>
 
 
 ## 第一部分
@@ -37,17 +38,17 @@ tags:
 
 该项目的最终交付物是：
 
-1. 一个自动的数据摄取和处理管道，将数据传送给所有终端用户。
+1. 一个自动的数据摄取和处理管道，将数据传送给所有终端用户
 
-2. 预测模型，在当前天气和运行条件下，估计每个风机的功率输出。
+2. 预测模型，在当前天气和运行条件下，估计每个风机的功率输出
 
-3. 预测模型，在当前天气和运行条件下，估计每个风机的剩余寿命。
+3. 预测模型，在当前天气和运行条件下，估计每个风机的剩余寿命
 
-4. 确定最佳运行条件的优化模型，以最大限度地提高功率输出，最大限度地降低维护成本，从而实现总利润的最大化。
+4. 确定最佳运行条件的优化模型，以最大限度地提高功率输出，最大限度地降低维护成本，从而实现总利润的最大化
 
-5. 为业务团队提供了一个实时分析仪表盘，以可视化地显示其风电场的当前和未来状态，如下图所示。
+5. 为业务团队提供了一个实时分析仪表盘，以可视化地显示其风电场的当前和未来状态，如下图所示：
 
-![高管看板](https://i.loli.net/2020/08/16/LwglJ5TfroHVzAY.png)
+![数据看板](https://i.loli.net/2020/08/16/LwglJ5TfroHVzAY.png)
 
 ### 架构 - 获取、存储、准备、培训、服务、可视化
 
@@ -402,7 +403,7 @@ turbine_raw
 
 ![](https://i.loli.net/2020/08/22/QyxJFBDT8Ws7N2V.png)
 
-####ASA中的分析报告
+#### ASA中的分析报告
 
 Azure Synapse Analytics (ASA)是Azure的下一代大数据数据仓库，它原生利用ADLS Gen 2并与Azure Databricks集成，以实现这些服务之间的无缝数据共享。
 
@@ -432,7 +433,7 @@ write_to_synapse = (
 
 也可以使用 Azure Data Factory 从 Delta 格式读取数据，并将其写入 Synapse SQL Pools。到这里数据已被清洗干净、处理妥当，可供数据分析师进行分析报告，可以针对实时数据以及 ML 模型的预测建立一个实时 PowerBI 仪表板。
 
-<video src="https://raw.githubusercontent.com/zhengr/zhengr.github.io/master/assets/PowerBI.mp4" width="800px" height="600px" controls="controls"></video>
+<video src="https://cdn.jsdelivr.net/gh/zhengr/zhengr.github.io/assets/video/PowerBI.mp4" width="800px" height="600px" controls="controls"></video>
 
 ###总结
 
