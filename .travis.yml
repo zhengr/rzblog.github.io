@@ -1,5 +1,6 @@
 language: node_js
-node_js: stable
+node_js:
+  - '4'
 
 install:
   - npm install hexo
@@ -22,6 +23,10 @@ notifications:
 branches:
   only:
     - hexo
+
+cache:
+  directories:
+    - node_modules
 
 env:
  global:
