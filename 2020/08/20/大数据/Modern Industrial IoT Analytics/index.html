@@ -1,0 +1,1698 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="（技）现代工业物联网(IIoT)大数据+AI场景实战-风力发电机优化, 人工智能,大数据,云计算,区块链">
+    <meta name="description" content="工业物联网(IIoT)在过去的几年里，从一个主要在石油和天然气行业进行试点的草根技术栈，如今发展到在制造、化工、公用事业、运输和能源行业广泛采用和生产使用。传统的物联网系统，如Scada、Historians甚至Hadoop，由于以下因素，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>（技）现代工业物联网(IIoT)大数据+AI场景实战-风力发电机优化 | Innovation</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/css/my.css">
+    
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Innovation</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Innovation</div>
+        <div class="logo-desc">
+            
+            艰苦奋斗、奋发进取，从绝望中寻找希望，人生终将辉煌。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengr" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengr" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">（技）现代工业物联网(IIoT)大数据+AI场景实战-风力发电机优化</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80/">
+                                <span class="chip bg-color">技</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E6%B9%96/">
+                                <span class="chip bg-color">数据湖</span>
+                            </a>
+                        
+                            <a href="/tags/IIOT/">
+                                <span class="chip bg-color">IIOT</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                大数据
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-20
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>工业物联网(IIoT)在过去的几年里，从一个主要在石油和天然气行业进行试点的草根技术栈，如今发展到在制造、化工、公用事业、运输和能源行业广泛采用和生产使用。传统的物联网系统，如Scada、Historians甚至Hadoop，由于以下因素，无法提供大多数组织所需的大数据分析能力，无法对工业资产进行预测性优化。</p>
+<table>
+<thead>
+<tr>
+<th><strong>挑战</strong></th>
+<th>所需能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据量显著增大且更加频繁</td>
+<td>从物联网设备中可靠地采集和存储亚秒级颗粒读数的能力，且成本效益要高，每天的数据流为TB级。</td>
+</tr>
+<tr>
+<td>数据处理需求更加复杂</td>
+<td>符合ACID标准的数据处理–基于时间的窗口、聚合、枢轴、回填、移动，并能轻松地重新处理旧数据。</td>
+</tr>
+<tr>
+<td>更多的用户角色希望访问数据</td>
+<td>数据是一种开放的格式，易于与运营工程师、数据分析师、数据工程师和数据科学家共享，而不会形成孤岛。</td>
+</tr>
+<tr>
+<td>决策需要可扩展的ML</td>
+<td>能够在细化的历史数据上快速、协作地训练预测模型，以做出智能的资产优化决策。</td>
+</tr>
+<tr>
+<td>降低成本的要求比以往更高</td>
+<td>低成本的按需管理平台，可随数据和工作负载独立扩展，不需要大量的前期资金。</td>
+</tr>
+</tbody></table>
+<p>企业正在转向类似Microsoft Azure这样的云计算平台，以利用它们所提供的可扩展的、支持IIoT的技术，使获取、处理、分析和服务时间序列数据源（如Historians和SCADA系统）变得简单。</p>
+<blockquote>
+<ul>
+<li>在第1部分中，我们将讨论端到端技术堆栈以及Azure Databricks在现代物联网分析的工业应用的架构和设计中所扮演的角色</li>
+<li>在第2部分中，我们将深入探讨部署现代IIoT分析技术，将现场设备的实时IIoT机对机数据摄入数据湖存储中，并直接在数据湖上进行复杂的时间序列处理</li>
+<li>在第3部分中，我们将探讨利用工业物联网数据进行机器学习和分析</li>
+</ul>
+</blockquote>
+<h2 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h2><h3 id="案例-风力发电机优化"><a href="#案例-风力发电机优化" class="headerlink" title="案例 - 风力发电机优化"></a>案例 - 风力发电机优化</h3><p>大多数IIoT分析项目都是为了最大限度地提高工业资产的短期利用率，同时最大限度地降低其长期维护成本。在本文中，我们重点关注一个假设的能源供应商，试图优化其风力发电机。最终目标是确定一组最佳的风机运行参数，以最大限度地提高每个风机的功率输出，同时最大限度地减少其故障时间。</p>
+<p><img src="https://i.loli.net/2020/08/16/GWpl38mcxF2y4dR.png" alt=""></p>
+<p>该项目的最终交付物是：</p>
+<ol>
+<li><p>一个自动的数据摄取和处理管道，将数据传送给所有终端用户</p>
+</li>
+<li><p>预测模型，在当前天气和运行条件下，估计每个风机的功率输出</p>
+</li>
+<li><p>预测模型，在当前天气和运行条件下，估计每个风机的剩余寿命</p>
+</li>
+<li><p>确定最佳运行条件的优化模型，以最大限度地提高功率输出，最大限度地降低维护成本，从而实现总利润的最大化</p>
+</li>
+<li><p>为业务团队提供了一个实时分析仪表盘，以可视化地显示其风电场的当前和未来状态，如下图所示：</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2020/08/16/LwglJ5TfroHVzAY.png" alt="数据看板"></p>
+<h3 id="架构-获取、存储、准备、培训、服务、可视化"><a href="#架构-获取、存储、准备、培训、服务、可视化" class="headerlink" title="架构 - 获取、存储、准备、培训、服务、可视化"></a>架构 - 获取、存储、准备、培训、服务、可视化</h3><p>下面的架构说明了许多组织使用的现代最佳平台，该方案基于<strong>Microsoft Azure云</strong>为IIoT分析提供的所有功能。如果企业有独立的自研技术能力，类似的架构可以通过基于开源项目自主开发也可以灵活实现。</p>
+<p><img src="https://i.loli.net/2020/08/16/FgYRmkV2NjMdcUr.png" alt=""></p>
+<p>该架构的一个关键组件是 Azure 数据湖存储 (ADLS)，它在 Azure 中实现了一次写入、多次访问的分析模式。然而，仅靠数据湖并不能解决时间序列流数据带来的现实世界挑战。砖厂的Delta存储格式在ADLS中存储的所有数据源上提供了一层弹性和性能。具体到时间序列数据，与ADLS上的其他存储格式相比，Delta具有以下优势。</p>
+<table>
+<thead>
+<tr>
+<th>所需能力</th>
+<th><strong>ADLS Gen 2的其他格式</strong></th>
+<th><strong>ADLS Gen 2的Delta格式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>流批一体化</td>
+<td>数据湖经常与像CosmosDB这样的流式存储一起使用，从而形成一个复杂的架构。</td>
+<td>符合ACID标准的事务使数据工程师能够在ADLS上执行流式摄取和历史上的批量加载到相同的位置。</td>
+</tr>
+<tr>
+<td>模式执行和演变</td>
+<td>数据湖不强制执行模式，要求所有数据都推送到关系型数据库中以保证可靠性。</td>
+<td>模式是默认执行的。随着新的物联网设备被添加到数据流中，模式可以安全地演进，因此下游应用不会失败。</td>
+</tr>
+<tr>
+<td>高效 Upserts</td>
+<td>数据湖不支持在线更新和合并，需要删除和插入整个分区才能执行更新。</td>
+<td>MERGE命令对于处理延迟的物联网读数、用于实时丰富的修改维度表或需要重新处理数据的情况非常有效。</td>
+</tr>
+<tr>
+<td>文件压缩</td>
+<td>将时间序列数据串流到数据湖中，会产生数百甚至数千个微小的文件。</td>
+<td>Delta中的自动压缩功能可以优化文件大小，以提高吞吐量和并行性。</td>
+</tr>
+<tr>
+<td>多维聚类</td>
+<td>数据湖仅在分区上提供下推式过滤功能。</td>
+<td>在时间戳或传感器ID等字段上对时间序列进行ZORDER，可以对这些列进行过滤和连接，比简单的分区技术快100倍。</td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在第一部分，回顾了传统IIoT系统面临的一些不同挑战。并介绍了现代IIoT分析的用例和目标，分享了组织已经在大规模部署的可重复架构，并探讨了Delta格式对每个所需功能的好处。</p>
+<p>在第二部分中，将把现场设备的实时IIoT数据摄入Azure，并直接在数据湖上进行复杂的时间序列处理。</p>
+<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h2><p>第一部分中，我们介绍了大数据用例和现代IIoT分析的目标，分享了企业用于大规模部署IIoT的实际可重复架构，并探讨了Delta格式对现代IIoT分析所需的每个数据湖功能的好处。我们再回顾一下架构图：</p>
+<p><img src="https://i.loli.net/2020/08/16/xzydpaCbU56ofsE.png" alt=""></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>我们使用Azure的Raspberry PI IoT模拟器来模拟实时的机器对机器传感器读数，并将其发送到Azure IoT Hub。</p>
+<h4 id="数据获取：Azure-IoT-Hub到数据湖"><a href="#数据获取：Azure-IoT-Hub到数据湖" class="headerlink" title="数据获取：Azure IoT Hub到数据湖"></a>数据获取：Azure IoT Hub到数据湖</h4><p>我们的部署将天气（风速和风向、温度、湿度）和风机远程信息（角度和转速）的传感器读数发送到 IoT 云计算中心。Azure Databricks 可以原生地将来自 IoT 集线器的数据直接流到 ADLS 上的 Delta 表中，并显示数据的输入与处理率。</p>
+<pre><code class="scala"># Read directly from IoT Hubs using the EventHubs library for Azure Databricks
+iot_stream = (
+    spark.readStream.format(&quot;eventhubs&quot;)                                        # Read from IoT Hubs directly
+    .options(**ehConf)                                                        # Use the Event-Hub-enabled connect string
+    .load()                                                                   # Load the data
+    .withColumn(&#39;reading&#39;, F.from_json(F.col(&#39;body&#39;).cast(&#39;string&#39;), schema)) # Extract the payload from the messages
+    .select(&#39;reading.*&#39;, F.to_date(&#39;reading.timestamp&#39;).alias(&#39;date&#39;))        # Create a &quot;date&quot; field for partitioning
+)
+
+# Split our IoT Hubs stream into separate streams and write them both into their own Delta locations
+write_turbine_to_delta = (
+    iot_stream.filter(&#39;temperature is null&#39;)                          # Filter out turbine telemetry from other streams
+    .select(&#39;date&#39;,&#39;timestamp&#39;,&#39;deviceId&#39;,&#39;rpm&#39;,&#39;angle&#39;)            # Extract the fields of interest
+    .writeStream.format(&#39;delta&#39;)                                    # Write our stream to the Delta format
+    .partitionBy(&#39;date&#39;)                                            # Partition our data by Date for performance
+    .option(&quot;checkpointLocation&quot;, ROOT_PATH + &quot;/bronze/cp/turbine&quot;) # Checkpoint so we can restart streams gracefully
+    .start(ROOT_PATH + &quot;/bronze/data/turbine_raw&quot;)                  # Stream the data into an ADLS Path
+)</code></pre>
+<p>Delta允许我们的IoT数据在IoT Hub采集后的几秒钟内被查询。</p>
+<pre><code class="sql">%sql 
+-- We can query the data directly from storage immediately as it streams into Delta 
+SELECT * FROM delta.`/tmp/iiot/bronze/data/turbine_raw` WHERE deviceid = &#39;WindTurbine-1&#39;</code></pre>
+<img src="https://i.loli.net/2020/08/16/JbG1p492CQek58I.png"  />
+
+<p>我们现在可以建立一个下游管道，丰富和聚合我们的IIoT应用数据，进行数据分析。</p>
+<h4 id="数据存储和处理：Azure-Databricks和Delta-Lake"><a href="#数据存储和处理：Azure-Databricks和Delta-Lake" class="headerlink" title="数据存储和处理：Azure Databricks和Delta Lake"></a>数据存储和处理：Azure Databricks和Delta Lake</h4><p>Delta 支持采用多跳流水线方法进行数据工程，数据质量和聚合度随着流水线的流动而提高。我们的时间序列数据将流经以下青铜级、白银级和黄金级数据。（青铜-白银-黄金 可以理解为数据成熟度的不同阶段， Bronze (raw) to Silver (aggregated) to Gold (enriched)）</p>
+<p><img src="https://i.loli.net/2020/08/16/8sgJKbticdAEpSH.png" alt=""></p>
+<p>我们从青铜到白银的管道将简单地把我们的涡轮机传感器数据汇总到1小时间隔。我们将执行一个流式MERGE命令，将汇总的记录上传到银色的Delta表中。</p>
+<p><img src="https://i.loli.net/2020/08/16/E1oZAqWFVh5fxcp.png" alt=""></p>
+<pre><code class="python"># Create functions to merge turbine and weather data into their target Delta tables
+def merge_records(incremental, target_path): 
+    incremental.createOrReplaceTempView(&quot;incremental&quot;)
+
+# MERGE consists of a target table, a source table (incremental),
+# a join key to identify matches (deviceid, time_interval), and operations to perform 
+# (UPDATE, INSERT, DELETE) when a match occurs or not
+    incremental._jdf.sparkSession().sql(f&quot;&quot;&quot;
+        MERGE INTO turbine_hourly t
+        USING incremental i
+        ON i.date=t.date AND i.deviceId = t.deviceid AND i.time_interval = t.time_interval
+        WHEN MATCHED THEN UPDATE SET *
+        WHEN NOT MATCHED THEN INSERT *
+    &quot;&quot;&quot;)
+
+
+# Perform the streaming merge into our  data stream
+turbine_stream = (
+    spark.readStream.format(&#39;delta&#39;).table(&#39;turbine_raw&#39;)        # Read data as a stream from our source Delta table
+    .groupBy(&#39;deviceId&#39;,&#39;date&#39;,F.window(&#39;timestamp&#39;,&#39;1 hour&#39;)) # Aggregate readings to hourly intervals
+    .agg({&quot;rpm&quot;:&quot;avg&quot;,&quot;angle&quot;:&quot;avg&quot;})
+    .writeStream                                                                                         
+    .foreachBatch(merge_records)                              # Pass each micro-batch to a function
+    .outputMode(&quot;update&quot;)                                     # Merge works with update mod
+    .start()
+)</code></pre>
+<p>我们从白银到黄金的管道将把这两条管道连接在一起，形成一个单一的表，用于每小时的天气和风机数据测量。</p>
+<pre><code class="python"># Read streams from Delta Silver tables
+turbine_hourly = spark.readStream.format(&#39;delta&#39;).option(&quot;ignoreChanges&quot;, True).table(&quot;turbine_hourly&quot;)
+weather_hourly = spark.readStream.format(&#39;delta&#39;).option(&quot;ignoreChanges&quot;, True).table(&quot;weather_hourly&quot;)
+
+# Perform a streaming join to enrich the data
+turbine_enriched = turbine_hourly.join(weather_hourly, [&#39;date&#39;,&#39;time_interval&#39;])
+
+# Perform a streaming merge into our Gold data stream
+merge_gold_stream = (
+    turbine_enriched.writeStream 
+    .foreachBatch(merge_records)
+    .start()
+)</code></pre>
+<p>我们可以立即查询我们的黄金级Delta表。</p>
+<p><img src="https://i.loli.net/2020/08/16/Ny9HaQ2go4sdqkc.png" alt=""></p>
+<p>数据分析Notebook里还包含一个单元格，它将生成历史每小时功率读数和日常维护日志，用于模型训练。运行该单元格将：</p>
+<ol>
+<li><p>在风机丰富表中回填一年的历史读数。</p>
+</li>
+<li><p>为power_output表中的每台风机生成历史功率读数。</p>
+</li>
+<li><p>在turbine_maintenance表中为每个风机生成历史维护日志。</p>
+</li>
+</ol>
+<p>现在，我们在Azure Data Lake上拥有丰富的就绪的人工智能(AI)数据，这些数据以高性能、可靠的格式提供给我们的数据科学建模，以优化资产利用率。</p>
+<pre><code class="sql">%sql
+-- Query all 3 tables together
+CREATE OR REPLACE VIEW gold_readings AS
+SELECT r.*, 
+    p.power, 
+    m.maintenance as maintenance
+FROM turbine_enriched r 
+    JOIN turbine_power p ON (r.date=p.date AND r.time_interval=p.time_interval AND r.deviceid=p.deviceid)
+    LEFT JOIN turbine_maintenance m ON (r.date=m.date AND r.deviceid=m.deviceid);
+
+SELECT * FROM gold_readings</code></pre>
+<p><img src="https://i.loli.net/2020/08/16/FBgumeayqjNScpv.png" alt=""></p>
+<p>我们的数据工程管道已经完成! 数据现在正从IoT Hubs流向青铜级（原始）到白银级（聚合）再到黄金级（丰富）。现在是时候对我们的数据进行一些分析了。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>综上所述，我们已经成功完成：</p>
+<ul>
+<li><p>将现场设备的实时IIoT数据输入Azure中</p>
+</li>
+<li><p>直接在Data Lake上进行复杂的时间序列处理</p>
+</li>
+</ul>
+<p>在第三部分中，我们将探讨如何使用机器学习来最大限度地提高风力发电机的收益，同时最大限度地降低停机的机会成本。</p>
+<h2 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h2><p>在第二部分关于Azure数据分析系列中，我们将现场设备的实时IIoT数据摄入Azure，并直接在Data Lake上进行复杂的时间序列处理。在第三部分中，我们将利用机器学习来进行预测性维护，并在最大限度地降低停机的机会成本的同时，使风力发电机的收益最大化，从而实现利润最大化。</p>
+<p>我们的模型训练和可视化的最终结果将是一个Power BI报告，如下图所示：</p>
+<p><img src="https://i.loli.net/2020/08/22/GBaJjqK1QmvH7dz.png" alt=""></p>
+<p>再再回顾一下端到端架构，如下图所示：</p>
+<p><img src="https://i.loli.net/2020/08/22/uIF8nXelkMCSKU4.png" alt=""></p>
+<h3 id="机器学习：功率输出和剩余寿命优化"><a href="#机器学习：功率输出和剩余寿命优化" class="headerlink" title="机器学习：功率输出和剩余寿命优化"></a>机器学习：功率输出和剩余寿命优化</h3><p>优化像风力发电机这样的工业资产的实用性、寿命和运营效率具有众多的收入和成本效益。我们在本文中探讨的现实挑战是在最大限度地提高风力发电机组的收益的同时，最大限度地降低停机的机会成本，从而使我们的净利润最大化。</p>
+<blockquote>
+<p>净利润=发电收入-设备附加应变成本</p>
+</blockquote>
+<p>如果我们将风机推到更高的转速，它将产生更多的能量，从而产生更多的收入。然而，风机所承受的额外压力将导致它更频繁地发生故障，从而引入成本。为了解决这个优化问题，我们将创建两个模型：</p>
+<ol>
+<li>预测给定一组运行条件下风机的发电量</li>
+<li>预测一组运行条件下风机的剩余寿命</li>
+</ol>
+<p><img src="https://i.loli.net/2020/08/22/JhpkxEIdmBC9jSF.png" alt=""></p>
+<p>然后，我们可以制作一条利润曲线，以确定最佳的运行条件，使电力收入最大化，同时使成本最小化。</p>
+<p>使用Azure Databricks与我们的Gold Delta表，我们将运用特征工程以提取感兴趣的领域，训练两个模型，最后将模型部署到Azure机器学习进行托管。</p>
+<p><img src="https://i.loli.net/2020/08/22/v1ewRUPmQ4gBNXV.png" alt=""></p>
+<p>要计算每台风机的剩余使用寿命，我们可以使用我们的维护记录，该记录显示了每个资产的更换时间。</p>
+<pre><code class="sql">%sql
+-- Calculate the age of each turbine and the remaining life in days
+CREATE OR REPLACE VIEW turbine_age AS
+WITH reading_dates AS (SELECT distinct date, deviceid FROM turbine_power),
+    maintenance_dates AS (
+    SELECT d.*, datediff(nm.date, d.date) as datediff_next, datediff(d.date, lm.date) as datediff_last 
+    FROM reading_dates d LEFT JOIN turbine_maintenance nm ON (d.deviceid=nm.deviceid AND d.date&lt;=nm.date)
+    LEFT JOIN turbine_maintenance lm ON (d.deviceid=lm.deviceid AND d.date&gt;=lm.date ))
+SELECT date, deviceid, min(datediff_last) AS age, min(datediff_next) AS remaining_life
+FROM maintenance_dates 
+GROUP BY deviceid, date;</code></pre>
+<p>为了预测6小时时间范围内的功率输出，我们使用Spark窗口函数计算时间序列移动。</p>
+<pre><code class="sql">CREATE OR REPLACE VIEW feature_table AS
+SELECT r.*, age, remaining_life,
+    -- Calculate the power 6 hours ahead using Spark Windowing and build a feature_table to feed into our ML models
+    LEAD(power, 6, power) OVER (PARTITION BY r.deviceid ORDER BY time_interval) as power_6_hours_ahead
+FROM gold_readings r 
+JOIN turbine_age a ON (r.date=a.date AND r.deviceid=a.deviceid)
+WHERE r.date &lt; CURRENT_DATE(); -- Only train on historical data</code></pre>
+<p><img src="https://i.loli.net/2020/08/22/PMihReqNfDvQx46.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/08/22/3iSyHVJu1hqXgFA.png" alt="">通过对数据的分析可以发现风机的运行参数（转速和角度）以及天气状况和6小时后的发电量之间都有很强的相关性。</p>
+<p><img src="https://i.loli.net/2020/08/22/OWPg1yw7a3lGHof.png" alt=""></p>
+<p>我们现在可以训练一个 XGBoost Regressor 模型，以使用我们的特征列（天气、传感器和功率读数）来预测我们的标签（提前六小时的功率读数）。我们可以使用Pandas UDF为每个风机并行训练一个模型，Pandas UDF将我们的XGBoost模型训练代码分发到Azure Databricks集群中的所有可用节点。</p>
+<pre><code class="python"># Create a Spark Dataframe that contains the features and labels we need
+feature_cols = [&#39;angle&#39;,&#39;rpm&#39;,&#39;temperature&#39;,&#39;humidity&#39;,&#39;windspeed&#39;,&#39;power&#39;,&#39;age&#39;]
+label_col = &#39;power_6_hours_ahead&#39;
+
+# Read in our feature table and select the columns of interest
+feature_df = spark.table(&#39;feature_table&#39;)
+
+# Create a Pandas UDF to train a XGBoost Regressor on each turbine&#39;s data
+@pandas_udf(feature_df.schema, PandasUDFType.GROUPED_MAP)
+def train_power_model(readings_pd):
+    mlflow.xgboost.autolog() # Auto-Log the XGB parameters, metrics, model and artifacts
+    with mlflow.start_run():
+    # Train an XGBRegressor on the data for this Turbine
+    alg = xgb.XGBRegressor() 
+    train_dmatrix = xgb.DMatrix(data=readings_pd[feature_cols].astype(&#39;float&#39;),label=readings_pd[label_col])
+    model = xgb.train(dtrain=train_dmatrix, evals=[(train_dmatrix, &#39;train&#39;)])
+    return readings_pd
+
+# Run the Pandas UDF against our feature dataset
+power_predictions = feature_df.groupBy(&#39;deviceid&#39;).apply(train_power_model)</code></pre>
+<p><img src="https://i.loli.net/2020/08/22/lvKCwrPpA3EUTiu.png" alt=""></p>
+<p>Azure Databricks 将通过托管的 MLflow 自动跟踪每个模型训练运行。对于 XGBoost Regression，MLflow 将跟踪任何一个参数、RMSE 指标等。例如，在设备id 是WindTurbine-18这台风机上预测功率的RMSE是45.79。</p>
+<p><img src="https://i.loli.net/2020/08/22/5X9T6hVAZHQBCt8.png" alt=""></p>
+<p>我们也对风机的剩余寿命进行类似的模型训练。其中一台风机的实际值与预测值对比如下图所示。</p>
+<p><img src="https://i.loli.net/2020/08/22/OHasrmPvpikd6U7.png" alt=""></p>
+<h3 id="模型部署和托管"><a href="#模型部署和托管" class="headerlink" title="模型部署和托管"></a>模型部署和托管</h3><p>Azure Databricks与Azure机器学习集成，用于模型部署和评分。直接在Databricks内部使用Azure ML API，我们可以通过Azure ML为每个模型自动部署镜像，并将其托管在快速、可扩展的容器服务（ACI或AKS）中。</p>
+<pre><code class="python"># Create a model image inside of AzureML
+model_image, azure_model = mlflow.azureml.build_image(model_uri=path, 
+                                                        workspace=workspace, 
+                                                        model_name=model,
+                                                        image_name=model,
+                                                        description=&quot;XGBoost model to predict power output”
+                                                        synchronous=False)
+
+# Deploy a web service to host the model as a REST API
+dev_webservice_deployment_config = AciWebservice.deploy_configuration()
+dev_webservice = Webservice.deploy_from_image(name=dev_webservice_name, 
+                                                image=model_image,                                                      
+                                                workspace=workspace)</code></pre>
+<p>模型部署完毕后，就会显示在Azure ML studio里面，我们可以进行REST API调用，对数据进行交互式评估。</p>
+<pre><code class="python"># Construct a payload to send with the request
+payload = {
+    &#39;angle&#39;:12,
+    &#39;rpm&#39;:10,
+    &#39;temperature&#39;:25,
+    &#39;humidity&#39;:50,
+    &#39;windspeed&#39;:10,
+    &#39;power&#39;:200,
+    &#39;age&#39;:10
+}
+
+def score_data(uri, payload):
+    rest_payload = json.dumps({&quot;data&quot;: [list(payload.values())]})
+    response = requests.post(uri, data=rest_payload, headers={&quot;Content-Type&quot;: &quot;application/json&quot;})
+    return json.loads(response.text)
+
+print(f&#39;Predicted power (in kwh) from model: {score_data(power_uri, payload)}&#39;)
+print(f&#39;Predicted remaining life (in days) from model: {score_data(life_uri, payload)}&#39;)</code></pre>
+<p>现在功率优化和RUL模型都被部署为预测服务，我们可以利用这两个模型来优化每个风力发电机的净利润。假设每千瓦时1美元，年收入可以简单地通过将每小时预期功率乘以24小时和365天来计算。年成本可以通过将每天的收入乘以涡轮机一年内需要维护的次数（365天/剩余寿命）来计算。</p>
+<p>我们只需对托管在Azure ML中的模型进行多次调用，就可以对各种运营参数进行迭代评估。通过可视化调整各种运行参数的预期利润成本，就可以确定最佳的转速以实现利润最大化。</p>
+<p><img src="https://i.loli.net/2020/08/22/8N62urRgDfXPH3i.png" alt=""></p>
+<h3 id="数据服务：Azure-Data-Explorer-ADX-和Azure-Synapse-Analytics-ASA"><a href="#数据服务：Azure-Data-Explorer-ADX-和Azure-Synapse-Analytics-ASA" class="headerlink" title="数据服务：Azure Data Explorer (ADX) 和Azure Synapse Analytics (ASA)"></a>数据服务：Azure Data Explorer (ADX) 和Azure Synapse Analytics (ASA)</h3><h4 id="ADX中的业务报告"><a href="#ADX中的业务报告" class="headerlink" title="ADX中的业务报告"></a>ADX中的业务报告</h4><p>Azure Data Explorer (ADX) 提供对流式时间序列数据的实时操作分析。IIoT设备数据可以直接从IoT Hub流式传输到ADX中，也可以使用微软的<a href="https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks" target="_blank" rel="noopener">Kusto Spark Connector</a>从Azure Databricks推送，如下所示：</p>
+<pre><code class="python">stream_to_adx = (
+    spark.readStream.format(&#39;delta&#39;).option(&#39;ignoreChanges&#39;,True).table(&#39;turbine_enriched&#39;)
+        .writeStream.format(&quot;com.microsoft.kusto.spark.datasink.KustoSinkProvider&quot;)
+        .option(&quot;kustoCluster&quot;,kustoOptions[&quot;kustoCluster&quot;])
+        .option(&quot;kustoDatabase&quot;,kustoOptions[&quot;kustoDatabase&quot;])
+        .option(&quot;kustoTable&quot;, kustoOptions[&quot;kustoTable&quot;])
+        .option(&quot;kustoAadAppId&quot;,kustoOptions[&quot;kustoAadAppId&quot;])
+        .option(&quot;kustoAadAppSecret&quot;,kustoOptions[&quot;kustoAadAppSecret&quot;])
+        .option(&quot;kustoAadAuthorityID&quot;,kustoOptions[&quot;kustoAadAuthorityID&quot;])
+    )</code></pre>
+<p>接下来使用PowerBI连接到Kusto表，为风机工程师创建一个真正的、实时的、运行的仪表盘。Azure Data Explorer (ADX) 还包含原生的时间序列分析功能，如预测和异常检测。例如，下面的Kusto代码可以发现数据流中转速读数的异常点。</p>
+<pre><code class="python">turbine_raw
+| where rpm &gt; 0
+| make-series rpm_normal = avg(rpm) default=0 on todatetime(timestamp) in range(datetime(2020-06-30 00:00:00), datetime(2020-06-30 01:00:00), 10s)
+| extend anomalies = series_decompose_anomalies(rpm_normal, 0.5)
+| render anomalychart with(anomalycolumns=anomalies, title=&quot;RPM Anomalies&quot;)</code></pre>
+<p><img src="https://i.loli.net/2020/08/22/QyxJFBDT8Ws7N2V.png" alt=""></p>
+<h4 id="ASA中的分析报告"><a href="#ASA中的分析报告" class="headerlink" title="ASA中的分析报告"></a>ASA中的分析报告</h4><p>Azure Synapse Analytics (ASA)是Azure的下一代大数据数据仓库，它原生利用ADLS Gen 2并与Azure Databricks集成，以实现这些服务之间的无缝数据共享。</p>
+<p><img src="https://i.loli.net/2020/08/22/7PAMfvFU5yXhxro.png" alt=""></p>
+<p>在利用Synapse和Azure Databricks的功能时，推荐的方式是根据团队的要求和访问数据的用户角色，使用最适合工作的工具。例如：</p>
+<ul>
+<li>数据工程师和数据科学家倾向于使用 Azure Databricks获得Delta的性能优势，并拥有一个协作、丰富和灵活的工作空间</li>
+<li>分析师将倾向于选择 Synapse进行低代码或基于数据仓库的 SQL 环境来摄取、处理和可视化数据</li>
+</ul>
+<p>Azure Databricks的Synapse流式连接器使我们能够将（Gold级别）的读数直接流式传输到Synapse SQL池中进行开发数据报表。</p>
+<pre><code class="python">spark.conf.set(&quot;spark.databricks.sqldw.writeSemantics&quot;, &quot;copy&quot;)                           # Use COPY INTO for faster loads
+
+write_to_synapse = (
+    spark.readStream.format(&#39;delta&#39;).option(&#39;ignoreChanges&#39;,True).table(&#39;turbine_enriched&#39;) # Read in Gold turbine readings
+    .writeStream.format(&quot;com.databricks.spark.sqldw&quot;)                                     # Write to Synapse
+    .option(&quot;url&quot;,dbutils.secrets.get(&quot;iot&quot;,&quot;synapse_cs&quot;))                                # SQL Pool JDBC (SQL Auth)
+    .option(&quot;tempDir&quot;, SYNAPSE_PATH)                                                      # Temporary ADLS path
+    .option(&quot;forwardSparkAzureStorageCredentials&quot;, &quot;true&quot;)
+    .option(&quot;dbTable&quot;, &quot;turbine_enriched&quot;)                                                # Table in Synapse to write to
+    .option(&quot;checkpointLocation&quot;, CHECKPOINT_PATH+&quot;synapse&quot;)                              # Streaming checkpoint
+    .start()
+)</code></pre>
+<p>也可以使用 Azure Data Factory 从 Delta 格式读取数据，并将其写入 Synapse SQL Pools。到这里数据已被清洗干净、处理妥当，可供数据分析师进行分析报告，可以针对实时数据以及 ML 模型的预测建立一个实时 PowerBI 仪表板。</p>
+<p><video src="https://cdn.jsdelivr.net/gh/zhengr/zhengr.github.io/assets/video/PowerBI.mp4" width="800px" height="600px" controls="controls"></video></p>
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>综上所述，我们已经成功完成：</p>
+<ul>
+<li>将现场设备的实时IIoT数据输入Azure中</li>
+<li>直接在Data Lake上进行复杂的时间序列处理</li>
+<li>训练和部署ML模型，以优化风力发电机资产的使用</li>
+<li>向工程师提供数据，用于业务报告，向数据分析师提供分析报告</li>
+</ul>
+<p>整个方案基于Microsoft Azure来构建，当然通过AWS&amp;阿里云也可以实现，因为Delta Lake（砖厂精品）是整个方案大数据技术的关键，它将一切联系在一起。ADLS上的Delta提供了可靠的流式数据管道和对海量时间序列数据的高性能数据科学计算和分析查询。最后，它赋能组织能够真正采用Lakehouse模式，将最佳的Azure技术组件引入一次写入、多次访问的数据存储中。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.eeic.com.cn" rel="external nofollow noreferrer">郑瑞(robin RUI ZHENG)</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.eeic.com.cn/2020/08/20/%E5%A4%A7%E6%95%B0%E6%8D%AE/Modern%20Industrial%20IoT%20Analytics/">https://blog.eeic.com.cn/2020/08/20/%E5%A4%A7%E6%95%B0%E6%8D%AE/Modern%20Industrial%20IoT%20Analytics/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.eeic.com.cn" target="_blank">郑瑞(robin RUI ZHENG)</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80/">
+                                    <span class="chip bg-color">技</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E6%B9%96/">
+                                    <span class="chip bg-color">数据湖</span>
+                                </a>
+                            
+                                <a href="/tags/IIOT/">
+                                    <span class="chip bg-color">IIOT</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '9JAMWhDLaXKEtQcYKrDnieE9-gzGzoHsz',
+        appKey: '1asHvgBTUr8L1snNDYxOFUKH',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/12/04/%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84/%E9%80%9A%E8%BF%87%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E7%AE%A1%E7%90%86%E6%96%B0%E6%8A%80%E6%9C%AF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="通过企业架构管理新技术">
+                        
+                        <span class="card-title">通过企业架构管理新技术</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            国内不少企业认为Enterprise Architect（企业架构）很关键、很重要，也陆续尝试设立了相应的岗位或部门，但是成功起到作用的是凤毛麟角。这是为什么呢？ 
+
+对企业架构会有种尴尬是： 业务部门觉得你不懂业务，IT人员觉得你不懂IT
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84/" class="post-category">
+                                    企业架构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84/">
+                        <span class="chip bg-color">企业架构</span>
+                    </a>
+                    
+                    <a href="/tags/IT%E6%88%98%E7%95%A5/">
+                        <span class="chip bg-color">IT战略</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%BD%93%E7%B3%BB%E8%A6%81%E7%AE%80%E5%8D%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="数据体系要简单直接，BI应该叫商业情报">
+                        
+                        <span class="card-title">数据体系要简单直接，BI应该叫商业情报</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对非技术行业公司（非IT，DT公司），千万不要太过痴迷于数据技术本身，能cloud的绝不OP，也不要把自己的数据体系搞得各种技术术语堆叠。这是非常错位的举动。 数据意图本质是为了洞悉数据背后所暗含的的商业规律和现象，并对进一步的商业运作决策
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E6%B9%96/">
+                        <span class="chip bg-color">数据湖</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://blog.eeic.com.cn" target="_blank">Robin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zhengr@msn.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2456555" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2456555" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/zhengr/rzblog.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
